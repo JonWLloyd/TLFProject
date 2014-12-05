@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿//TEST TO ENSURE THAT GITHUB IS WORKING CORRECTLY
+
+
+using UnityEngine;
 using System;
 using System.Collections;
 
