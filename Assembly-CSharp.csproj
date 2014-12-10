@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{5B580621-09B4-68CB-B5F4-5B9DD210A60F}</ProjectGuid>
+	<ProjectGuid>{60F2CD62-58C9-2178-2FD1-1754FBF980E2}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -49,10 +49,12 @@
      <Compile Include="Assets\Scripts\DifficultyCurve.cs" />
      <Compile Include="Assets\Scripts\EditorScripts\DifficultyCurveEditor.cs" />
      <Compile Include="Assets\Scripts\Gameplay.cs" />
+     <Compile Include="Assets\Scripts\LevelSelect.cs" />
      <Compile Include="Assets\Scripts\MouseInput.cs" />
      <Compile Include="Assets\Scripts\Obstacle.cs" />
      <Compile Include="Assets\Scripts\ObstacleFactory.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\SaveLoad.cs" />
      <Compile Include="Assets\Scripts\Scenery.cs" />
      <Compile Include="Assets\Scripts\SceneryFactory.cs" />
   </ItemGroup>
