@@ -1,12 +1,13 @@
-﻿//TEST TO ENSURE THAT GITHUB IS WORKING CORRECTLY
-
-
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using System.Collections;
 
+[System.Serializable]
 public class DifficultyCurve : MonoBehaviour 
 {
+
+	public static DifficultyCurve current;
+
 	[Serializable]
 	public class DifficultyLevel
 	{
@@ -19,7 +20,7 @@ public class DifficultyCurve : MonoBehaviour
 			Rows = rows;
 		}
 	}
-
+	
 	private DifficultyLevel [] mLevels;
 	public float GameStartSpeed = 10f;
 	public float GameSpeedRamp = 0.1f;
