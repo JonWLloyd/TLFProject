@@ -5,7 +5,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class LevelSelect : ScriptableObject {
 
-	[System.Serializable]
+	/*[System.Serializable]
 	public class Blocks{
 		public bool topLeft;
 		public bool topMiddle;
@@ -13,12 +13,30 @@ public class LevelSelect : ScriptableObject {
 		public bool bottomLeft;
 		public bool bottomMiddle;
 		public bool bottomRight;
-	}
+	}*/
 
 	[System.Serializable]
 	public class Level{
 		public int Start;
-		public List<Blocks> BlockList;
+
+		public bool topLeft;
+		public bool topMiddle;
+		public bool topRight;
+		public bool bottomLeft;
+		public bool bottomMiddle;
+		public bool bottomRight;
+
+
+		//public Blocks BlockList;
+
+		/*public bool topLeft;
+		public bool topMiddle;
+		public bool topRight;
+		public bool bottomLeft;
+		public bool bottomMiddle;
+		public bool bottomRight;*/
+
+		//public List<Blocks> BlockList;
 	}
 	
 	public List<Level> LevelList;
