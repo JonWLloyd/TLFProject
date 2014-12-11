@@ -23,15 +23,4 @@ public class LevelSelect : ScriptableObject {
 	
 	public List<Level> LevelList;
 
-	/*int Level1;
-	int Level2;
-	int Level3;
-	int Level4;
-	int Level5;
-	int Level6;
-	int Level7;
-	int Level8;
-	int Level9;
-	int Level10;*/
-
 }
