@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 public class DifficultyCurveEditor : Editor{
 
-	LevelSelect current = null;
+	public LevelSelect current = null;
 	private string fileName = "";
 	private string fileLoc = "";
 	private string LfileName = "";

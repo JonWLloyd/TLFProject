@@ -5,9 +5,7 @@ using System.Collections;
 [System.Serializable]
 public class DifficultyCurve : MonoBehaviour 
 {
-
-	public static DifficultyCurve current;
-
+	/*
 	[Serializable]
 	public class DifficultyLevel
 	{
@@ -19,7 +17,7 @@ public class DifficultyCurve : MonoBehaviour
 			Name = n;
 			Rows = rows;
 		}
-	}
+	}*/
 	
 	private DifficultyLevel [] mLevels;
 	public float GameStartSpeed = 10f;
@@ -41,6 +39,7 @@ public class DifficultyCurve : MonoBehaviour
 	{
 		Reset();
 
+		/*
 		bool [,] difficulty1 = { { false, true, false }, { false, false, false } };
 		bool [,] difficulty2 = { { true, true, false }, { false, false, false } };
 		bool [,] difficulty3 = { { true, true, false }, { false, false, false } };
@@ -59,7 +58,7 @@ public class DifficultyCurve : MonoBehaviour
 		{
 			mLevels[count] = new DifficultyLevel();
 			mLevels[count].Setup( "", difficulties[count] ); 
-		}
+		}*/
 	}
 
 	public void ProcessNextObstacle( float dt )
