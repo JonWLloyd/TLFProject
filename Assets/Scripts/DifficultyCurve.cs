@@ -92,6 +92,8 @@ public class DifficultyCurve : MonoBehaviour
 
 				bool LevelChosen = false;
 
+
+				//Randomly selects a set of blocks, if the game is going fast enough to meet the start value then it is chosen
 				while(LevelChosen == false){
 
 					System.Random rnd = new System.Random();

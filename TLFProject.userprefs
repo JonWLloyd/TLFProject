@@ -1,12 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DifficultyCurve.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EditorScripts\DifficultyCurveEditor.cs">
     <Files>
-      <File FileName="Assets\Scripts\EditorScripts\DifficultyCurveEditor.cs" Line="56" Column="46" />
-      <File FileName="Assets\Scripts\DifficultyCurve.cs" Line="90" Column="57" />
-      <File FileName="Assets\Scripts\Gameplay.cs" Line="33" Column="3" />
-      <File FileName="Assets\Scripts\Obstacle.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ObstacleFactory.cs" Line="32" Column="31" />
+      <File FileName="Assets\Scripts\EditorScripts\DifficultyCurveEditor.cs" Line="84" Column="39" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

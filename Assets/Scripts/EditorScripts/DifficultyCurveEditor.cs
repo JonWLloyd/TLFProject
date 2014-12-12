@@ -12,7 +12,6 @@ public class DifficultyCurveEditor : Editor{
 
 	private LevelSelect current = null;
 	private string fileName = "";
-	private string fileLoc = "";
 	private string LfileName = "";
 
 	//Checks to see if a level has been loaded
@@ -61,7 +60,7 @@ public class DifficultyCurveEditor : Editor{
 			newLevels.LevelList[0].topRight = false;
 
 			//Then this is saved as a new asset ready to be edited
-			AssetDatabase.CreateAsset (newLevels,"Assets/DifficultyCurves/" + fileName + ".asset");
+			AssetDatabase.CreateAsset (newLevels,"Assets/Resources/" + fileName + ".asset");
 			AssetDatabase.SaveAssets ();
 			AssetDatabase.Refresh ();
 			current = newLevels;
@@ -76,21 +75,17 @@ public class DifficultyCurveEditor : Editor{
 		
 		//User names file they wish to load
 		LfileName = EditorGUILayout.TextField ("Load File Name", LfileName);
-		fileLoc = "Assets/DifficultyCurves/" + LfileName + ".asset";
 
 		//When the "Load" button is pressed
 		if (GUILayout.Button ("Load Difficulty File")) {			
 			//if user has typed in a path
 			if (LfileName != ""){
 				//Asset at path specified loaded into "current" variable
-				current = AssetDatabase.LoadAssetAtPath ("Assets/DifficultyCurves/Test.asset"/*fileLoc*/, typeof(LevelSelect)) as LevelSelect;
+				current = Resources.Load(LfileName,typeof(LevelSelect)) as LevelSelect;
 				AssetDatabase.Refresh ();
 				loaded = true;
 			}
 		}
-
-		LfileName = "";
-		fileLoc = "";
 
 		GUILayout.EndHorizontal ();
 		//End loading row
@@ -103,7 +98,7 @@ public class DifficultyCurveEditor : Editor{
 					AssetDatabase.SaveAssets ();
 					AssetDatabase.Refresh ();
 			}
-
+		
 			//Allows the individual difficulty levels on file to be edited
 			for(int i = 0; i < current.LevelList.Count; ++i){
 
@@ -164,7 +159,7 @@ public class DifficultyCurveEditor : Editor{
 	}
 	void Awake(){
 		//allows variables in the editor to be accessed from anywhere in the script
-		instance = this;
+		instance = this;	
 		
 	}
 
