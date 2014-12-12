@@ -71,6 +71,7 @@ public class Gameplay : MonoBehaviour
 			break;
 		case State.Game:
 			GUI.Box( new Rect( 0, 0, Screen.width * 0.5f, Screen.height * 0.2f ), string.Format( "Distance: {0:0.0} m", mDifficulty.Distance ), Style );
+			GUI.Box( new Rect( 0, 100, Screen.width * 0.5f, Screen.height * 0.2f ), string.Format( "Speed: \t m/s", GameSpeed ), Style );
 			break;
 		case State.GameOver:
 			GUI.Box( new Rect( Screen.width * 0.25f, 0, Screen.width * 0.5f, Screen.height * 0.5f ), string.Format( "Game Over!  Total Distance: {0:0.0} m", mDifficulty.Distance ), Style );

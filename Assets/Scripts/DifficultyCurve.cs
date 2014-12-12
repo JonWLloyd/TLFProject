@@ -42,6 +42,7 @@ public class DifficultyCurve : MonoBehaviour
 	{
 		Reset();
 
+		//loads all blocks into difficulty
 		if (levels != null) {
 
 			for (int i = 0; i < levels.LevelList.Count; i++) {

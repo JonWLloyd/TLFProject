@@ -10,7 +10,7 @@ public class DifficultyCurveEditor : Editor{
 	//allows variables from the editor to be used from any location in the script
 	public static DifficultyCurveEditor instance;
 
-	private LevelSelect current = null;
+	private LevelSelect current;
 	private string fileName = "";
 	private string LfileName = "";
 
