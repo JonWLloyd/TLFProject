@@ -5,7 +5,7 @@ using System.Collections;
 [System.Serializable]
 public class DifficultyCurve : MonoBehaviour 
 {
-	/*
+
 	[Serializable]
 	public class DifficultyLevel
 	{
@@ -17,7 +17,7 @@ public class DifficultyCurve : MonoBehaviour
 			Name = n;
 			Rows = rows;
 		}
-	}*/
+	}
 	
 	private DifficultyLevel [] mLevels;
 	public float GameStartSpeed = 10f;
@@ -26,10 +26,13 @@ public class DifficultyCurve : MonoBehaviour
 	public float TimeBetweenObsticalesRamp = 0.1f;
 	public float HardDistance = 100.0f;
 
+	private LevelSelect levels = DifficultyCurveEditor.instance.returnLevel ();
+
 	private float mTimeBetweenObsticales;
 	private float mTimeToNextObsticale;
 	private float mDistance;
 	private int mNextDifficulty;
+	private bool [][,] difficulties;
 
 	public Obstacle NextObstacle { get; private set; }
 	public float Distance { get { return mDistance; } }
@@ -38,6 +41,16 @@ public class DifficultyCurve : MonoBehaviour
 	void Awake()
 	{
 		Reset();
+
+		if (levels != null) {
+
+			for (int i = 0; i < levels.LevelList.Count; i++) {
+
+			bool [,] newDiff = {{ levels.LevelList [i].bottomLeft, levels.LevelList [i].bottomMiddle, levels.LevelList [i].bottomRight },{ levels.LevelList[i].topLeft, levels.LevelList[i].topMiddle, levels.LevelList[i].topRight } };
+
+			difficulties[i] = newDiff;
+		}
+
 
 		/*
 		bool [,] difficulty1 = { { false, true, false }, { false, false, false } };
@@ -53,12 +66,16 @@ public class DifficultyCurve : MonoBehaviour
 
 		bool [] [,] difficulties = { difficulty1, difficulty2, difficulty3, difficulty4, difficulty5, difficulty6, difficulty7, difficulty8, difficulty9, difficulty10 };
 
-		mLevels = new DifficultyLevel[10];
-		for( int count = 0; count < mLevels.Length; count++ )
-		{
-			mLevels[count] = new DifficultyLevel();
-			mLevels[count].Setup( "", difficulties[count] ); 
-		}*/
+		*/
+
+			mLevels = new DifficultyLevel[levels.LevelList.Count];
+			for( int count = 0; count < mLevels.Length; count++ )
+			{
+				mLevels[count] = new DifficultyLevel();
+				mLevels[count].Setup( "", difficulties[count] ); 
+			}
+
+		}
 	}
 
 	public void ProcessNextObstacle( float dt )
@@ -73,15 +90,31 @@ public class DifficultyCurve : MonoBehaviour
 				mTimeBetweenObsticales -= TimeBetweenObsticalesRamp;
 				mTimeToNextObsticale = mTimeBetweenObsticales;
 
+				bool LevelChosen = false;
+
+				while(LevelChosen == false){
+
+					System.Random rnd = new System.Random();
+					int check = rnd.Next (0,levels.LevelList.Count);
+
+					if (levels.LevelList[check].Start >= GameSpeed){
+					
+						LevelChosen = true;
+						mNextDifficulty = check;
+					
+					}
+
+				}
+
 				Obstacle o = ObstacleFactory.Create( mLevels[mNextDifficulty].Rows );
 				o.transform.parent = transform;
 
 				NextObstacle = o;
 				GameSpeed += GameSpeedRamp;
 
-				float diff = mDistance / HardDistance;
-				mNextDifficulty = (int)( diff * (float)mLevels.Length );
-				mNextDifficulty = Mathf.Clamp( mNextDifficulty, 0, mLevels.Length - 1 );
+				//float diff = mDistance / HardDistance;
+				//mNextDifficulty = (int)( diff * (float)mLevels.Length );
+				//mNextDifficulty = Mathf.Clamp( mNextDifficulty, 0, mLevels.Length - 1 );
 			}
 		}
 	}

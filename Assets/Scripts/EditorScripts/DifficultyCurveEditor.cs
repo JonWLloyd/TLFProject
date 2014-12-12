@@ -7,7 +7,10 @@ using System.Collections.Generic;
 
 public class DifficultyCurveEditor : Editor{
 
-	public LevelSelect current = null;
+	//allows variables from the editor to be used from any location in the script
+	public static DifficultyCurveEditor instance;
+
+	private LevelSelect current = null;
 	private string fileName = "";
 	private string fileLoc = "";
 	private string LfileName = "";
@@ -63,8 +66,6 @@ public class DifficultyCurveEditor : Editor{
 			AssetDatabase.Refresh ();
 			current = newLevels;
 
-			fileName = "";
-
 			loaded = true;
 		}
 		GUILayout.EndHorizontal ();
@@ -96,9 +97,6 @@ public class DifficultyCurveEditor : Editor{
 
 		//only show rest of options if there is a loaded level
 		if (loaded) {
-
-			//Stops it constantly trying to load if check failed
-			loaded = false;
 
 			//Saves all changes to the current asset
 			if (GUILayout.Button ("Save Difficulty File")) {
@@ -164,5 +162,13 @@ public class DifficultyCurveEditor : Editor{
 		}
 
 	}
+	void Awake(){
+		//allows variables in the editor to be accessed from anywhere in the script
+		instance = this;
+		
+	}
 
+	public LevelSelect returnLevel(){
+		return current;
+	}
 }

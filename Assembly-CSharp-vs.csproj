@@ -54,7 +54,6 @@
      <Compile Include="Assets\Scripts\Obstacle.cs" />
      <Compile Include="Assets\Scripts\ObstacleFactory.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\Scripts\SaveLoad.cs" />
      <Compile Include="Assets\Scripts\Scenery.cs" />
      <Compile Include="Assets\Scripts\SceneryFactory.cs" />
   </ItemGroup>
